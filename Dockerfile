@@ -1,8 +1,10 @@
+# utiliser la commande 'docker search python' pour connaitre l'image de base Python à utiliser
 FROM python3.9
 
 COPY . .
 
-RUN pip install -r requirements.txt
+# utiliser pip ou pip3, selon la version que vous avez installé
+RUN pip3 install -r requirements.txt
 
 EXPOSE 8000
 
