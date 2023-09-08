@@ -1,0 +1,10 @@
+torch
+huggingface_hub
+transformers
+fastapi
+uvicorn
+pandas
+tqdm
+wandb
+sklearn
+gradio
