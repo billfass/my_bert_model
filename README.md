@@ -25,23 +25,30 @@ This is a custom BERT model fine-tuned for text classification. The model was tr
 For classification:
 
 ```python
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
+import torch.nn as nn
+from transformers import AutoTokenizer, BertModel
 
-tokenizer = AutoTokenizer.from_pretrained("billfass/my_bert_model")
-model = AutoModelForSequenceClassification.from_pretrained("billfass/my_bert_model")
+tokenizer = AutoTokenizer.from_pretrained("billfass/multilingual_bert_model_classiffication")
+model = BertModel.from_pretrained("billfass/multilingual_bert_model_classiffication")
 
-text = "Your example text here."
+def prediction(premise, hypothesis):
+    inputs = tokenizer(premise, hypothesis, return_tensors="pt")
+    with torch.no_grad():
+        output = model(**inputs)
 
-inputs = tokenizer(text, padding=True, truncation=True, max_length=80, return_tensors="pt")
-labels = torch.tensor([1]).unsqueeze(0)  # Batch size 1
+    logits = output.last_hidden_state
+    linear_layer = nn.Linear(768, 3)
+    predict = torch.max(linear_layer(logits.view(-1, 768)), dim=1)
+    label_pred = predict.indices[torch.argmax(predict.values).item()].item()
 
-outputs = model(**inputs, labels=labels)
-loss = outputs.loss
-logits = outputs.logits
+    return {
+        "label" : label_pred
+    }
 
-# To get probabilities:
-probs = torch.softmax(logits, dim=-1)
+print(prediction("Hello world", "I'm here"))
+
+# or you can simply lunch demo.ipynb file to test
 ```
 
 ## Limitations and Bias
