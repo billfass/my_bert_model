@@ -54,8 +54,13 @@ def prediction(premise, hypothesis):
 
 print(prediction("Hello world", "I'm here"))
 
-# or you can simply lunch demo.ipynb file to test
 ```
+### Test the model using gradio
+Lunch demo.ipynb file to test the model with gradio 
+
+### Test the model using FAST API
+Lunch main.py file to test the model with FastApi 
+
 
 ## Limitations and Bias
 
