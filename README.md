@@ -6,11 +6,11 @@
 
 This is a custom BERT model fine-tuned for text classification. The model was trained using a subset of a publicly available dataset and is capable of classifying text into 3 classes.
 
-The dataset we've used contains information in the form of sentence pairs (promised and hypothesis). This dataset seems to be used for natural language understanding tasks, like inference classification or predicting the relationship between the promised and the hypothesis. As far as we are concerned, we are responsible for classifying the "promised" + "hypothesis" column based on the corresponding label.
+The dataset we've used contains information in the form of sentence pairs (premise and hypothesis). This dataset seems to be used for natural language understanding tasks, like inference classification or predicting the relationship between the premise and the hypothesis. As far as we are concerned, we are responsible for classifying the "premise" + "hypothesis" column based on the corresponding label.
 
-Project Objective: The main objective is to develop a Deep Learning model capable of predicting the relationship between the promised and the hypothesis in each sentence pair.
+Project Objective: The main objective is to develop a Deep Learning model capable of predicting the relationship between the premise and the hypothesis in each sentence pair.
 
-Task: Classification task: Predict the relationship between the promised and the hypothesis. The classes might be different possible relationships such as "Contradiction", "Entailment", and "Neutral".
+Task: Classification task: Predict the relationship between the premise and the hypothesis. The classes might be different possible relationships such as "Contradiction", "Entailment", and "Neutral".
 
 ## Training Details
 
