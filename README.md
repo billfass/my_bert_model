@@ -69,8 +69,8 @@ Lunch main.py file to test the model with FastApi
 
 ## Authors
 
-- **Fassinou Bile**
-- **billfass2010@gmail.com**
+- **Bill Fassinou**
+- **bill.fassinou@gmail.com**
   
 ## Acknowledgments
 
